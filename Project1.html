@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>Counter</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        .box{
+            height:300px;
+            width: 400px;
+            background-color: antiquewhite;
+            justify-content: center;
+            margin: auto;
+            text-align: center;
+            margin-top: 10px;
+        }
+        .textcounter{
+            color: crimson;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-weight: bold;
+        }
+        .counterNumber{
+            color:rgb(41, 8, 41);
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-weight: bold;
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h3 class="textcounter">COUNTER</h3>
+
+        <h4 id="counternumber" class="counterNumber">0</h4>
+        <div class="container">
+<div class="row justify-content-center">
+    <div class="col-3">
+        <button id="addbtn" class="btn btn-secondary">Add</button>
+    </div>
+    <div class="col-3">
+        <button id="removebtn" class="btn btn-secondary">Remove</button>
+    </div>
+</div>
+        </div>
+    </div>
+
+    <script>
+        let counternumber=document.getElementById('counternumber')
+        let addbtn=document.getElementById('addbtn')
+        let removebtn=document.getElementById('removebtn')
+        let value=parseInt(counternumber.textContent)
+
+        addbtn.addEventListener('click',addbtnclick)
+        removebtn.addEventListener('click',removebtnclick)
+       
+        function addbtnclick(){
+            value+=1;
+            updatecounter();
+        }
+
+        function removebtnclick(){
+            value-=1;
+            updatecounter();
+        }
+
+        function updatecounter(){
+            counternumber.textContent=value.toString();
+            color();
+        }
+        function color(){
+            if(value<0){
+                counternumber.style.color='red';
+            }else if(value>0){
+                counternumber.style.color='green'
+            }else{
+                 counternumber.style.color='black'
+            }
+        }
+    </script>
+</body>
+</html>
